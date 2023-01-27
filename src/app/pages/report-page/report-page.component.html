@@ -1,0 +1,38 @@
+<p-menubar>
+    <ng-template pTemplate="start">
+        <button type="button" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div class="flex align-items-center mr-6">
+            <p-avatar icon="pi pi-user" styleClass="mr-2" size="large"
+                [style]="{'background-color':'#2196F3', 'color': '#ffffff'}" shape="circle"></p-avatar>
+            <b>{{username}}</b>
+        </div>
+    </ng-template>
+</p-menubar>
+
+<div class="flex justify-content-around mt-6">
+    <div>
+        <label class="mr-3">Categoria:</label>
+        <p-dropdown [options]="categorias" [(ngModel)]="selectedCategory" optionLabel="nombre" (onChange)="getProductos()"
+            placeholder="Seleccione una categoria"></p-dropdown>
+    </div>
+    <div>
+        <label class="mr-3">Producto:</label>
+        <p-dropdown [options]="productos" [(ngModel)]="selectedProduct" optionLabel="nombre" (onChange)="getMarcas()"
+            placeholder="Seleccione un producto"></p-dropdown>
+    </div>
+    <div>
+        <label class="mr-3">Marca:</label>
+        <p-dropdown [options]="marcas" [(ngModel)]="selectedMarca" optionLabel="nombre"  (onChange)="getVentas()"
+            placeholder="Seleccione una marca"></p-dropdown>
+    </div>
+</div>
+
+<div class="flex justify-content-center mt-6">
+    <div class="card col-10">
+        <h3 style="text-align: center;">Sales By Month For:</h3>
+        <p-chart type="bar" [data]="basicData" [options]="basicOptions" height="80vh"></p-chart>
+    </div>
+</div>

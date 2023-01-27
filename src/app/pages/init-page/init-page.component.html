@@ -1,0 +1,15 @@
+<div class="flex justify-content-center ">
+    <div class="card shadow-8 flex justify-content-around col-6 h-10rem mt-6 border-round ">
+        <div class="field col-12 md:col-8 mt-6 ">
+            <span class="p-float-label p-fluid">
+                <input type="text" id="inputtext" pInputText [(ngModel)]="username">
+                <label for="inputtext">Nombre usuario</label>
+            </span>
+        </div>
+
+        <div class="col-4 mt-6">
+            <p-button label="Entrar" (onClick)="setUsername()" [disabled]="!valid"></p-button>
+        </div>
+    </div>
+
+</div>
